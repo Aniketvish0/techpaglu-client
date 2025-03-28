@@ -4,7 +4,7 @@ import confetti from "canvas-confetti";
 export function ConfettiSideCannons({ trigger }: { trigger: boolean }) {
   useEffect(() => {
     if (trigger) {
-      const end = Date.now() + 3 * 1000; 
+      const end = Date.now() + 2 * 1000; 
       const colors = ["#a786ff", "#fd8bbc", "#eca184", "#f8deb1"];
 
       const frame = () => {
@@ -25,7 +25,6 @@ export function ConfettiSideCannons({ trigger }: { trigger: boolean }) {
           origin: { x: 1, y: 0.5 },
           colors: colors,
         });
-
         requestAnimationFrame(frame);
       };
       frame();
