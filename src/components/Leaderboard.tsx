@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '../components/ui/avatar';
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import Loader2 from '../icons/Loader2';
 import { Trophy } from 'lucide-react';
 const VITE_API_URI = import.meta.env.VITE_API_URI;
