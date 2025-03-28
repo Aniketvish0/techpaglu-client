@@ -5,6 +5,7 @@ import Loader2 from './icons/Loader2';
 import Twitter from './icons/Twitter';
 import Share2 from './icons/Share2';
 import Navbar from './components/Navbar';
+import { ConfettiSideCannons } from './components/ui/ConfettiSideCannons';
 
 type AnalysisResult = {
   tech_enthusiasm_score: number;
@@ -25,6 +26,7 @@ function App() {
   const [error, setError] = useState('');
   const [serverStatus, setServerStatus] = useState<'up' | 'down' | 'checking'>('checking');
   const [isSharingLoading, setIsSharingLoading] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
   const resultCardRef = useRef(null);
 
   useEffect(() => {
@@ -48,6 +50,7 @@ function App() {
     setLoading(true);
     setError('');
     setResult(null);
+    setShowConfetti(false);
 
     try {
       const cleanHandle = handle.startsWith('@') ? handle.substring(1) : handle;
@@ -55,10 +58,12 @@ function App() {
         timeout: 900000,
       });
       setResult(response.data);
-    } catch (err: any) {
+      if (response.data.tech_enthusiasm_score > 80) {
+        setShowConfetti(true);
+      }
+    } catch (err) {
       console.error('API Error:', err);
       setError(
-        err.response?.data?.error ||
         'Failed to analyze Twitter handle. Please try again.'
       );
     } finally {
@@ -87,11 +92,11 @@ function App() {
 
   const getCategoryDescription = (category: string) => {
     switch (category) {
-      case 'techpaglu':
+      case 'techpaglu 😎':
         return "You are a true tech enthusiast!, Tech community is proud of you 🫡";
-      case 'reachpaglu':
+      case 'reachpaglu 🤑':
         return 'You have a balanced interest in tech topics. Sab pata hai reach kaise laani hai 😉';
-      case 'shitpaglu':
+      case 'shitpaglu 😒':
         return 'Your Tweets shows limited tech-related content. Bas shitposting kro, badhiya hai!🙂';
       default:
         return '';
@@ -117,6 +122,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-black text-white flex relative overflow-hidden">
+      <ConfettiSideCannons trigger={showConfetti}/>
       <Navbar/>
       <div className="absolute top-0 left-0 w-full h-full">
         <div className="absolute top-0 left-0 w-1/3 h-2/3 bg-green-500 rounded-full opacity-20 blur-3xl transform -translate-x-1/4 -translate-y-1/4"></div>
@@ -223,6 +229,9 @@ function App() {
                 </div>
                 <p className="mt-2 text-gray-300">
                   {getCategoryDescription(getCategory(result.tech_enthusiasm_score))}
+                </p>
+                <p>
+
                 </p>
                 <div className="mt-4 text-sm text-gray-400">
                   <p>Analyzed {result.total_tweets} tweets</p>
