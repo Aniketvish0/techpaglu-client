@@ -5,7 +5,7 @@ import Loader2 from './icons/Loader2';
 import Twitter from './icons/Twitter';
 import Share2 from './icons/Share2';
 import Navbar from './components/Navbar';
-import Leaderboard from './components/LeaderBoard';
+import Leaderboard from './components/Leaderboard';
 import { ConfettiSideCannons } from './components/ui/ConfettiSideCannons';
 
 type AnalysisResult = {
