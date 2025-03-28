@@ -100,7 +100,7 @@ const Leaderboard: React.FC = () => {
                       </div>
                     </div>
                     <div className={`text-xl font-bold ${getScoreColor(entry.recent_score)}`}>
-                      {entry.recent_score.toFixed(1)}
+                       {entry.recent_score.toFixed(1)}
                     </div>
                   </div>
                 ))}
