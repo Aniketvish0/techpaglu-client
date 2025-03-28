@@ -39,8 +39,9 @@ function App() {
         setServerStatus('down');
       }
     };
-
     checkServerStatus();
+    const healthiterval = setInterval(checkServerStatus,10 * 60 * 1000)
+    return () => {clearInterval(healthiterval);}
   }, []);
 
   const analyzeHandle = async (e: React.FormEvent) => {
