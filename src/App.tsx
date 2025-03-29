@@ -55,7 +55,7 @@ function App() {
 
     try {
       const cleanHandle = handle.startsWith('@') ? handle.substring(1) : handle;
-      const response = await axios.get(`${VITE_API_URI}/analyse/${cleanHandle}`, {
+      const response = await axios.get(`${VITE_API_URI}/analyse/${cleanHandle.toLocaleLowerCase()}`, {
         timeout: 900000,
       });
       setResult(response.data);
