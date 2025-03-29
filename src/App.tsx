@@ -33,7 +33,7 @@ function App() {
     const checkServerStatus = async () => {
       try {
         await axios.get(`${VITE_API_URI}/health`);
-        setServerStatus('down');
+        setServerStatus('up');
       } catch (err) {
         console.error('Server appears to be down:', err);
         setServerStatus('down');
