@@ -93,7 +93,7 @@ const Leaderboard: React.FC = () => {
                         </AvatarFallback>
                       </Avatar>
                       <div className='overflow-hidden'>
-                        <a className="font-medium text-white" href={`https://x.com/${entry.username}`}>@{entry.username}</a>
+                        <a className="font-medium text-white block max-w-[140px] truncate sm:max-w-none sm:whitespace-normal" href={`https://x.com/${entry.username}`}>@{entry.username}</a>
                         <p className="text-xs text-gray-400">
                           {entry.total_analyses} Analysis{entry.total_analyses !== 1 ? 'es' : ''}
                         </p>
