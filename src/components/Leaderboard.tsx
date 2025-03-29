@@ -80,20 +80,20 @@ const Leaderboard: React.FC = () => {
                 {leaderboardData.map((entry, index) => (
                   <div 
                     key={entry.username} 
-                    className={`flex items-center justify-between p-4 rounded-lg 
+                    className={`flex items-center justify-between p-4 rounded-lg
                       ${index === 0 ? 'bg-green-900/30 border border-green-500/50' : 'bg-gray-800/70'}
                     `}
                   >
-                    <div className="flex items-center space-x-4">
+                    <div className="flex items-center space-x-4" >
                       <span className="text-gray-400 font-bold">#{index + 1}</span>
-                      <Avatar>
+                      <Avatar onClick={() => window.open(`https://x.com/${entry.username}`, '_blank')}>
                         <AvatarImage src={entry.profile_url} alt={entry.username} />
                         <AvatarFallback className="bg-green-500 text-black">
                           {entry.username.substring(0, 2).toUpperCase()}
                         </AvatarFallback>
                       </Avatar>
-                      <div>
-                        <p className="font-medium text-white">@{entry.username}</p>
+                      <div className='overflow-hidden'>
+                        <a className="font-medium text-white" href={`https://x.com/${entry.username}`}>@{entry.username}</a>
                         <p className="text-xs text-gray-400">
                           {entry.total_analyses} Analysis{entry.total_analyses !== 1 ? 'es' : ''}
                         </p>

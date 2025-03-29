@@ -110,7 +110,8 @@ function App() {
     setIsSharingLoading(true);
 
     const category = getCategory(result.tech_enthusiasm_score);
-    const shareText = `I scored ${result.tech_enthusiasm_score}/100 as a ${category} on the Real TechPaglu! Check your score:`;
+    const shareText = `I scored ${result.tech_enthusiasm_score}/100 as a ${category} on the Real TechPaglu! - https://techpaglu.vercel.app check your score `;
+
 
     const twitterIntentUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
       shareText
@@ -204,7 +205,7 @@ function App() {
             )}
 
             {result && (
-              <div className="mt-8 text-center">
+              <div className="mt-8 text-center" id='score-card'>
                 <div className="mb-4 relative p-4 md:p-6 border border-green-500/30 rounded-xl bg-gray-800/70 backdrop-blur-sm">
                   <div className="text-4xl md:text-6xl font-bold mb-2 text-green-400">
                     {result.tech_enthusiasm_score}/100
