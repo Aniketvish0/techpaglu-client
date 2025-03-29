@@ -65,7 +65,7 @@ function App() {
     } catch (err) {
       console.error('API Error:', err);
       setError(
-        'Failed to analyze Twitter handle. Please try again.'
+        'Rate Limit Applied, please try after some minutes'
       );
     } finally {
       setLoading(false);
