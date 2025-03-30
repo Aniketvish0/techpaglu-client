@@ -33,7 +33,7 @@ function App() {
     const checkServerStatus = async () => {
       try {
         await axios.get(`${VITE_API_URI}/health`);
-        setServerStatus('up');
+        setServerStatus('down');
       } catch (err) {
         console.error('Server appears to be down:', err);
         setServerStatus('down');
@@ -149,7 +149,7 @@ function App() {
                   <AlertTriangle />
                 </div>
                 <p className="text-red-400 text-xs md:text-sm">
-                  We are down due to heavy traffic. Till then Enjoy leaderboard  Contact Developer x.com/aniketvish0
+                  We are down 🙂 Till then Enjoy leaderboard! - Contact Developer x.com/aniketvish0
                 </p>
               </div>
             )}
